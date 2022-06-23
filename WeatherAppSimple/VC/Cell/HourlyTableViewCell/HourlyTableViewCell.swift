@@ -7,11 +7,11 @@
 
 import UIKit
 
-class HourlyTableViewCell: UITableViewCell {
+final class HourlyTableViewCell: UITableViewCell {
     
     @IBOutlet var collectionView: UICollectionView!
     
-    var models = [Current]()
+    private var models = [Current]()
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,7 +20,6 @@ class HourlyTableViewCell: UITableViewCell {
         collectionView.dataSource = self
     }
 
-    
     static let identifier = "\(HourlyTableViewCell.self)"
     
     static func nib() -> UINib {
@@ -30,6 +29,7 @@ class HourlyTableViewCell: UITableViewCell {
     func configure(with models: [Current]) {
         self.models = models
         collectionView.reloadData()
+        collectionView.backgroundColor = .clear
     }
 }
 
@@ -40,11 +40,9 @@ extension HourlyTableViewCell: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(WeatherCollectionViewCell.self)", for: indexPath) as! WeatherCollectionViewCell
         cell.configure(with: models[indexPath.row])
-        collectionView.backgroundColor = .clear
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 80.0, height: 130.0)
     }
-    
 }

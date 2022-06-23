@@ -15,7 +15,6 @@ struct WeatherResponce: Codable {
     var daily: [Daily]?
 }
 
-
 // MARK: - Current
 
 struct Current: Codable {
@@ -25,7 +24,6 @@ struct Current: Codable {
     var weather: [Weather]?
 }
 
-
 // MARK: - Weather
 
 struct Weather: Codable {
@@ -33,7 +31,6 @@ struct Weather: Codable {
     var description: String?
     var icon: String?
 }
-
 
 // MARK: - Daily
 
@@ -44,7 +41,6 @@ struct Daily: Codable {
     var weather: [Weather]?
     
 }
-
 
 // MARK: - Temp
 

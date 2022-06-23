@@ -59,6 +59,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6039B3D52863BDE200A88DD1 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				609817D2284FDADC001CC49F /* LocationManager.swift */,
+				601D4C42283BECE100421C62 /* NetworkService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		6039B3D62863BDF500A88DD1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				601D4C44283F940400421C62 /* WeatherViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6039B3D72863BE0200A88DD1 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				6072D3CD27FD969C000AFFA6 /* ViewController.swift */,
+				606C43602832597800EC01CA /* Cell */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		6039B3D82863BE0E00A88DD1 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				6072D3C927FD969C000AFFA6 /* AppDelegate.swift */,
+				6072D3CB27FD969C000AFFA6 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		6039B3D92863BE2300A88DD1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				601D4C4028394EAA00421C62 /* WeatherResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		606C43602832597800EC01CA /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,14 +149,11 @@
 		6072D3C827FD969C000AFFA6 /* WeatherAppSimple */ = {
 			isa = PBXGroup;
 			children = (
-				6072D3C927FD969C000AFFA6 /* AppDelegate.swift */,
-				6072D3CB27FD969C000AFFA6 /* SceneDelegate.swift */,
-				6072D3CD27FD969C000AFFA6 /* ViewController.swift */,
-				601D4C44283F940400421C62 /* WeatherViewModel.swift */,
-				609817D2284FDADC001CC49F /* LocationManager.swift */,
-				601D4C42283BECE100421C62 /* NetworkService.swift */,
-				601D4C4028394EAA00421C62 /* WeatherResponse.swift */,
-				606C43602832597800EC01CA /* Cell */,
+				6039B3D82863BE0E00A88DD1 /* App */,
+				6039B3D72863BE0200A88DD1 /* VC */,
+				6039B3D62863BDF500A88DD1 /* ViewModel */,
+				6039B3D52863BDE200A88DD1 /* Services */,
+				6039B3D92863BE2300A88DD1 /* Models */,
 				6072D3D527FD969F000AFFA6 /* Assets.xcassets */,
 				6072D3CF27FD969C000AFFA6 /* Main.storyboard */,
 				6072D3D727FD969F000AFFA6 /* LaunchScreen.storyboard */,

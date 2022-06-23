@@ -32,7 +32,6 @@ final class WeatherViewModel: NSObject, WeatherViewModelProtocol {
             self?.weatherResponse = weatherResponse
         }
     }
-    
 }
 
 extension WeatherViewModel: UITableViewDelegate, UITableViewDataSource {
@@ -56,16 +55,14 @@ extension WeatherViewModel: UITableViewDelegate, UITableViewDataSource {
         guard let response = weatherResponse, let dailyResponse = response.daily, let hourlyResponse = response.hourly else { return UITableViewCell() }
         
         if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: HourlyTableViewCell.identifier, for: indexPath) as! HourlyTableViewCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: HourlyTableViewCell.identifier, for: indexPath) as? HourlyTableViewCell else { return UITableViewCell() }
             cell.configure(with: hourlyResponse)
-            cell.backgroundColor = .clear
             return cell
         }
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: DailyTableViewCell.identifier, for: indexPath) as? DailyTableViewCell else { return UITableViewCell() }
         
         cell.configure(with: dailyResponse[indexPath.row] )
-        cell.backgroundColor = .clear
         return cell
     }
     

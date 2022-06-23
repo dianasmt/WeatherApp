@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DailyTableViewCell: UITableViewCell {
+final class DailyTableViewCell: UITableViewCell {
     
     @IBOutlet var dayLabel: UILabel!
     @IBOutlet var highTemperatureLabel: UILabel!
@@ -30,12 +30,13 @@ class DailyTableViewCell: UITableViewCell {
         self.dayLabel.text = getDayForDate(Date(timeIntervalSince1970: model.dt ?? 0))
 
         model.weather?.forEach({ weather in
-            let icon = weather.description?.lowercased()
-            if (icon!.contains("light rain")) {
+            guard let icon = weather.description?.lowercased() else { return }
+            
+            if (icon.contains("light rain")) {
                 self.iconImageView.image = UIImage(named: "light rain")
-            } else if (icon!.contains("rain")) {
+            } else if (icon.contains("rain")) {
                 self.iconImageView.image = UIImage(named: "rain")
-            } else if (icon!.contains("clear")) {
+            } else if (icon.contains("clear")) {
                 self.iconImageView.image = UIImage(named: "sun")
             } else {
                 self.iconImageView.image = UIImage(named: "cloudy")

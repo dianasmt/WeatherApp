@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WeatherCollectionViewCell: UICollectionViewCell {
+final class WeatherCollectionViewCell: UICollectionViewCell {
     
     static let identifier  = "\(WeatherCollectionViewCell.self)"
     
@@ -25,20 +25,21 @@ class WeatherCollectionViewCell: UICollectionViewCell {
         self.iconImageView.contentMode = .scaleAspectFit
         
         model.weather?.forEach({ weather in
-            let icon = weather.description?.lowercased()
-            if (icon!.contains("light rain")) {
+            guard let icon = weather.description?.lowercased() else { return }
+            
+            if (icon.contains("light rain")) {
                 self.iconImageView.image = UIImage(named: "light rain")
-            } else if (icon!.contains("clear")) {
+            } else if (icon.contains("clear")) {
                 self.iconImageView.image = UIImage(named: "sun")
-            }  else if (icon!.contains("rain")) {
+            }  else if (icon.contains("rain")) {
                 self.iconImageView.image = UIImage(named: "rain")
-            }else {
+            } else {
                 self.iconImageView.image = UIImage(named: "cloudy")
             }
         })
     }
 
-    func getDayForDate(_ date: Date?) -> String {
+    private func getDayForDate(_ date: Date?) -> String {
         guard let inputDate = date else { return ""}
         
         let formatter = DateFormatter()

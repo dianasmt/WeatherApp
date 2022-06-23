@@ -24,6 +24,7 @@ final class NetworkService: NSObject, CLLocationManagerDelegate, NetworkServiceP
         url?.queryItems = params
         guard let url = url?.url else { return }
         let weatherRequest = URLRequest(url: url)
+        
         URLSession.shared.dataTask(with: weatherRequest) { data, response, error in
             guard let data = data, error == nil else {
                 print("\(error?.localizedDescription ?? "error")")
@@ -38,8 +39,6 @@ final class NetworkService: NSObject, CLLocationManagerDelegate, NetworkServiceP
                 }
             }
         }.resume()
-        
     }
-    
 }
 

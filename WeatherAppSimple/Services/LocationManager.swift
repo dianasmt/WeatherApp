@@ -20,7 +20,6 @@ class LocationManager: NSObject, LoacationManagerProtocol {
     func getLocation() -> CLLocationCoordinate2D? {
         return locationManager.location?.coordinate
     }
-    
 }
 
 

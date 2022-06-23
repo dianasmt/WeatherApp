@@ -8,13 +8,11 @@
 import UIKit
 import CoreLocation
 
-class ViewController: UIViewController{
+final class ViewController: UIViewController{
     
     private var viewModel: WeatherViewModelProtocol = WeatherViewModel()
     
     @IBOutlet private weak var tableView: UITableView!
-    
-    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,7 +67,6 @@ class ViewController: UIViewController{
         temperatureLabel.textAlignment = .center
         
         temperatureLabel.font = UIFont(name: "Helvetica-Bold", size: 32)
-        iconView.image = UIImage(named: "sun")
         
         if let currentWeather = weatherModel.current, let currentWeatherTemp = currentWeather.temp {
             locationLabel.text = weatherModel.timezone
@@ -92,5 +89,4 @@ class ViewController: UIViewController{
             return "cloudy"
         }
     }
-    
 }
