@@ -35,9 +35,7 @@ final class WeatherViewModel: NSObject, WeatherViewModelProtocol {
 }
 
 extension WeatherViewModel: UITableViewDelegate, UITableViewDataSource {
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         guard let response = weatherResponse, let dailyResponse = response.daily else { return 0}
         
         if section == 0 {
@@ -51,7 +49,6 @@ extension WeatherViewModel: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         guard let response = weatherResponse, let dailyResponse = response.daily, let hourlyResponse = response.hourly else { return UITableViewCell() }
         
         if indexPath.section == 0 {

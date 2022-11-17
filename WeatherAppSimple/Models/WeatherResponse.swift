@@ -8,7 +8,6 @@
 import Foundation
 
 struct WeatherResponce: Codable {
-    
     var timezone: String?
     var current: Current?
     var hourly: [Current]?
@@ -18,7 +17,6 @@ struct WeatherResponce: Codable {
 // MARK: - Current
 
 struct Current: Codable {
-    
     var dt: Double?
     var temp: Double?
     var weather: [Weather]?
@@ -27,7 +25,6 @@ struct Current: Codable {
 // MARK: - Weather
 
 struct Weather: Codable {
-    
     var description: String?
     var icon: String?
 }
@@ -35,18 +32,14 @@ struct Weather: Codable {
 // MARK: - Daily
 
 struct Daily: Codable {
-    
     var dt: Double?
     var temp: Temp?
     var weather: [Weather]?
-    
 }
 
 // MARK: - Temp
 
 struct Temp: Codable {
-    
     var max: Double?
     var min: Double?
-    
 }

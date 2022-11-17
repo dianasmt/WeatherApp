@@ -15,9 +15,7 @@ final class HourlyTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        collectionView.register(WeatherCollectionViewCell.nib(), forCellWithReuseIdentifier: "\(WeatherCollectionViewCell.self)")
-        collectionView.delegate = self
-        collectionView.dataSource = self
+        setUpCollectionView()
     }
 
     static let identifier = "\(HourlyTableViewCell.self)"
@@ -29,6 +27,12 @@ final class HourlyTableViewCell: UITableViewCell {
     func configure(with models: [Current]) {
         self.models = models
         collectionView.reloadData()
+    }
+    
+    private func setUpCollectionView() {
+        collectionView.register(WeatherCollectionViewCell.nib(), forCellWithReuseIdentifier: "\(WeatherCollectionViewCell.self)")
+        collectionView.delegate = self
+        collectionView.dataSource = self
         collectionView.backgroundColor = .clear
     }
 }
@@ -38,7 +42,7 @@ extension HourlyTableViewCell: UICollectionViewDelegate, UICollectionViewDataSou
         return models.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(WeatherCollectionViewCell.self)", for: indexPath) as! WeatherCollectionViewCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(WeatherCollectionViewCell.self)", for: indexPath) as? WeatherCollectionViewCell else { return UICollectionViewCell() }
         cell.configure(with: models[indexPath.row])
         return cell
     }

@@ -16,11 +16,7 @@ final class ViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tableView.register(HourlyTableViewCell.nib(), forCellReuseIdentifier: HourlyTableViewCell.identifier)
-        tableView.register(DailyTableViewCell.nib(), forCellReuseIdentifier: DailyTableViewCell.identifier)
-        tableView.delegate = viewModel
-        tableView.dataSource = viewModel
+        setUpTableView()
         viewModel.didContentChanged = {
             self.tableView.reloadData()
         }
@@ -88,5 +84,12 @@ final class ViewController: UIViewController{
         } else {
             return "cloudy"
         }
+    }
+    
+    private func setUpTableView() {
+        tableView.register(HourlyTableViewCell.nib(), forCellReuseIdentifier: HourlyTableViewCell.identifier)
+        tableView.register(DailyTableViewCell.nib(), forCellReuseIdentifier: DailyTableViewCell.identifier)
+        tableView.delegate = viewModel
+        tableView.dataSource = viewModel
     }
 }

@@ -46,7 +46,6 @@ final class DailyTableViewCell: UITableViewCell {
     
     func getDayForDate(_ date: Date?) -> String {
         guard let inputDate = date else { return ""}
-        
         let formatter = DateFormatter()
         formatter.dateFormat = "d MMM EEEE"
         return formatter.string(from: inputDate)

@@ -41,7 +41,6 @@ final class WeatherCollectionViewCell: UICollectionViewCell {
 
     private func getDayForDate(_ date: Date?) -> String {
         guard let inputDate = date else { return ""}
-        
         let formatter = DateFormatter()
         formatter.dateFormat = "H"
         return formatter.string(from: inputDate)
